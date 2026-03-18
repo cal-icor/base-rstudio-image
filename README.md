@@ -1,6 +1,8 @@
-# rstudio-user-image
+# base-rstudio-image
 
-See this repository's [CONTRIBUTING.md](https://github.com/cal-icor/rstudio-user-image/blob/main/CONTRIBUTING.md) for instructions. That information will eventually be migrated to docs.datahub.berkeley.edu.
+This is the base Rstudio image for the [Cal-ICOR Jupyterhub Deployment](https://github.com/cal-icor/cal-icor-hubs).
+
+See this repository's [CONTRIBUTING.md](https://github.com/cal-icor/base-rstudio-image/blob/main/CONTRIBUTING.md) for instructions.
 
 ## building the image locally
 
