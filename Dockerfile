@@ -50,6 +50,7 @@ COPY apt.txt /tmp/apt.txt
 RUN apt-get -qq update --yes && \
     apt-get -qq install --yes --no-install-recommends \
         $(grep -v ^# /tmp/apt.txt) && \
+    apt-get -qq install --yes --only-upgrade ca-certificates && \
     apt-get -qq purge && \
     apt-get -qq clean && \
     rm -rf /var/lib/apt/lists/*
@@ -154,6 +155,8 @@ RUN /tmp/install-miniforge.bash
 ENV PATH=${CONDA_DIR}/bin:$PATH
 COPY environment.yml /tmp/environment.yml
 RUN mamba env update -q -p ${CONDA_DIR} -f /tmp/environment.yml
+# eMudhra CA distrust; remove once the base image ships these.
+RUN mamba install -q -y -p ${CONDA_DIR} "ca-certificates>=2026.10.19" "certifi>=2026.10.19"
 RUN mamba clean -afy
 
 # installing chromium browser to enable webpdf conversion using nbconvert
